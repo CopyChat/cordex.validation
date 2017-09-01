@@ -3,3 +3,14 @@
 
 # Ada Library Information
 *.ali
+
+# all the data from GEBA
+*.csv
+*.mat
+
+# tmux record
+*.log
+
+# plots
+*.eps
+*.png
