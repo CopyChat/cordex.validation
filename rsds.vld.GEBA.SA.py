@@ -47,54 +47,53 @@ print Month.shape # 2065 months
 
 GRID=(\
         'SARAH2',\
-        'ERA_Interim',\
-        'CCLM',\
-        'RCA4',\
-        'HIRHAM5',\
-        'RACMO22T',\
-        'REMO2009',\
-        # 'SRB',\
-        # 'NCEP-CFSR',\
+        'ERAINT',\
+        'SRB',\
+        'CFSR',\
+        # RCM evaluation:
+        # 'CCLM',\
+        # 'RCA4',\
+        # 'HIRHAM5',\
+        # 'RACMO22T',\
+        # 'REMO2009',\
+        # GCM evaluation:
+        # 'CNRM-CM5',\
+        # 'CSIRO-Mk3-6-0',\
+        # 'CanESM2',\
+        # 'EC-EARTH',\
+        # 'GFDL-ESM2M',\
+        # 'HadGEM2-ES',\
+        # 'IPSL-CM5A-LR',\
+        # 'IPSL-CM5A-MR',\
+        # 'MIROC5',\
+        # 'MPI-ESM-LR',\
+        # 'NorESM1-M',\
+        # GCM-RCM:
+        # 'CNRM-CM5_CLMcom-CCLM4',\
+        # 'CNRM-CM5_RCA4',\
+        # 'CSIRO-Mk3-6-0_RCA4',\
+        # 'CanESM2_RCA4',\
+        # 'EC-EARTH_CLMcom-CCLM4',\
+        # 'EC-EARTH_DMI-HIRHAM5_v2',\
+        # 'EC-EARTH_KNMI-RACMO22T',\
+        # 'EC-EARTH_MPI-CSC-REMO2009',\
+        # 'EC-EARTH_RCA4',\
+        # 'GFDL-ESM2M_RCA4',\
+        # 'HadGEM2-ES_CLMcom-CCLM4',\
+        # 'HadGEM2-ES_KNMI-RACMO22T_v2',\
+        # 'HadGEM2-ES_RCA4',\
+        # 'IPSL-CM5A-LR_GERICS-REMO2009',\
+        # 'IPSL-CM5A-MR_RCA4',\
+        # 'MIROC5_RCA4',\
+        # 'MPI-ESM-LR_CLMcom-CCLM4',\
+        # 'MPI-ESM-LR_MPI-CSC-REMO2009',\
+        # 'MPI-ESM-LR_RCA4',\
+        # 'NorESM1-M_DMI-HIRHAM5',\
+        # 'NorESM1-M_RCA4',\
         )
 
-RCM=(\
-        'CCCma-CanESM2_SMHI-RCA4_v1',\
-        'CNRM-CERFACS-CNRM-CM5_SMHI-RCA4_v1',\
-        'CSIRO-QCCCE-CSIRO-Mk3-6-0_SMHI-RCA4_v1',\
-        'ICHEC-EC-EARTH_SMHI-RCA4_v1',\
-        'IPSL-IPSL-CM5A-MR_SMHI-RCA4_v1',\
-        'MIROC-MIROC5_SMHI-RCA4_v1',\
-        'MOHC-HadGEM2-ES_SMHI-RCA4_v1',\
-        'MPI-M-MPI-ESM-LR_SMHI-RCA4_v1',\
-        'NCC-NorESM1-M_SMHI-RCA4_v1',\
-        'NOAA-GFDL-GFDL-ESM2M_SMHI-RCA4_v1',\
-        \
-        'CNRM-CERFACS-CNRM-CM5_CLMcom-CCLM4-8-17_v1',\
-        'ICHEC-EC-EARTH_CLMcom-CCLM4-8-17_v1',\
-        'MOHC-HadGEM2-ES_CLMcom-CCLM4-8-17_v1',\
-        'MPI-M-MPI-ESM-LR_CLMcom-CCLM4-8-17_v1',\
-        'ICHEC-EC-EARTH_DMI-HIRHAM5_v2',\
-        'NCC-NorESM1-M_DMI-HIRHAM5_v1',\
-        'ICHEC-EC-EARTH_KNMI-RACMO22T_v1',\
-        'MOHC-HadGEM2-ES_KNMI-RACMO22T_v2',\
-        'ICHEC-EC-EARTH_MPI-CSC-REMO2009_v1',\
-        'IPSL-IPSL-CM5A-LR_GERICS-REMO2009_v1',\
-        'MPI-M-MPI-ESM-LR_MPI-CSC-REMO2009_v1',\
-        )
 
-GCM=(\
-    'rsds_Amon_CNRM-CM5_historical-rcp85_r1i1p1',\
-    'rsds_Amon_CSIRO-Mk3-6-0_historical-rcp85_r1i1p1',\
-    'rsds_Amon_CanESM2_historical-rcp85_r1i1p1',\
-    'rsds_Amon_EC-EARTH_historical-rcp85_r1i1p1',\
-    'rsds_Amon_GFDL-ESM2M_historical-rcp85_r1i1p1',\
-    'rsds_Amon_HadGEM2-ES_historical-rcp85_r1i1p1',\
-    'rsds_Amon_IPSL-CM5A-LR_historical-rcp85_r1i1p1',\
-    'rsds_Amon_IPSL-CM5A-MR_historical-rcp85_r1i1p1',\
-    'rsds_Amon_MIROC5_historical-rcp85_r1i1p1',\
-    'rsds_Amon_MPI-ESM-LR_historical-rcp85_r1i1p1',\
-    'rsds_Amon_NorESM1-M_historical-rcp85_r1i1p1',\
-    )
+
 
 #=================================================== validation:
 def Validation(inputarray):
@@ -110,6 +109,16 @@ def Validation(inputarray):
         Anomaly = np.array(pd.read_csv(DIR+inputfile,\
                 header=None,skiprows=0))[:,9]
 
+
+
+        # if(i==23):
+
+            # for ff in range(len(InputValue)):
+                # print i,InputValue[ff]
+
+            # print inputarray[i]
+            # quit()
+
         # correlation
         cof= "%.2f" % float(np.ma.corrcoef(InputValue,OBS)[0,1])
 
@@ -118,7 +127,10 @@ def Validation(inputarray):
 
 
         # Bias
-        bias= "%.2f" % np.array([np.abs(InputValue[l]-OBS[l]) for l in range(len(OBS))]).mean()
+        bias= "%.2f" % np.array([(InputValue[l]-OBS[l]) for l in range(len(OBS))]).mean()
+
+        # Absolute Mean Bias
+        MAB="%.2f" % np.array([np.abs(InputValue[l]-OBS[l]) for l in range(len(InputValue))]).mean()
 
         # RMSE
         error=InputValue-OBS
@@ -130,20 +142,33 @@ def Validation(inputarray):
         Sigma = np.std(InputValue,dtype=np.float64)/np.std(OBS,dtype=np.float64)
         Sigma = "%.2f" % Sigma
 
-        print inputarray[i],cof,"("+cof_anomaly+")",bias,RMSE,Sigma
+        print inputarray[i],cof,"("+cof_anomaly+")",bias,RMSE,Sigma, MAB
+
 
     print "====================================="
 
-
+def autolabel(rects,ax):
+    """
+    Attach a text label above each bar displaying its height
+    """
+    for rect in rects:
+        height = rect.get_height()
+        ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
 
 
 def BiasDistribution(inputarray):
 
     # def of intervals:
-    Intervals=[0,-5,-10,-15,-20,-25,-30,-35]
+    Intervals=np.array([0,-5,-10,-15,-20,-25,-30,-35])
+    print type(Intervals)
+    # Intervals=[0,-5,-10,-15,-20,-25,-30,-35]
 
     # create a 2D array for the biases in (Model x Interval) dim.
     InterBias=np.zeros((len(GRID),len(Intervals)-1))
+
+    No_sta_Interval=np.array([9,7,8,5,4,1])# from counting 
 
     for i in range(len(inputarray)):
 
@@ -170,35 +195,61 @@ def BiasDistribution(inputarray):
             # Bias
             InterBias[i,x]="%.2f" % np.array([np.abs(InterValue[l]-InterValue_OBS[l]) for l in range(len(InterValue))]).mean()
 
+            # print("---------------"+str(x))
+
     print InterBias.shape
     print InterBias
+    print NO_value
 
 
+    #=================================================== 
     # to plot this InterBias
-    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(14,9),\
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(14,8),\
         facecolor='w', edgecolor='k') # figsize=(w,h)
-    # fig.subplots_adjust(left=0.3,bottom=0.1,right=0.9,\
-        # hspace=0.15,top=0.9,wspace=0.43)
+    fig.subplots_adjust(left=0.1,bottom=0.1,right=0.9,\
+        hspace=0.15,top=0.93,wspace=0.43)
+
+    # for more colors
+    cm = plt.get_cmap('gist_rainbow')
 
     for m in range(len(GRID)):
-        ax.plot([jk+2.5 for jk in Intervals[0:7]],InterBias[m][::-1],marker='o',markersize=6,label=GRID[m])
+        # nan in lat: 5-10,so mask it:
+        Mask = np.isfinite(InterBias[m])
 
-    legend = ax.legend(loc='upper right',shadow=False ,prop={'size':12})
+        InterBias_plot = InterBias[m][Mask]
 
-    
-    title='monthly RSDS Mean Absolute Bias at GEBA stations'
+        Intervals_plot = Intervals[Mask]
+
+        # for more colors
+        ax.set_color_cycle([cm(1.*m/len(GRID)) \
+                for i in range(len(GRID))])
+        ax.plot(\
+                [(jk-2.5)*(-1) for jk in Intervals_plot],\
+                InterBias_plot,\
+                marker='o',markersize=6,label=GRID[m])
+
+    rects1 = ax.bar(\
+                [(jk-2.5)*(-1) for jk in Intervals_plot],\
+                No_sta_Interval, 2, color='gray',label='No. of station')
+    autolabel(rects1,ax)
+    # ax.legend((rects1[0]), loc=4)
+    # # plt.gca().add_artist(legend1)
+    legend1 = ax.legend(loc='upper right',shadow=False ,prop={'size':12})
+
+
+    title='monthly RSDS Mean Absolute Bias at GEBA stations (1990-2005)'
     fig.suptitle(title,fontsize=12)
 
     ax.set_xlabel('latitude', fontsize=14)
-    ax.set_ylabel('Mean Absolute Bias (W/m2)', fontsize=14)
-    ax.set_xticks([ 1,2,3,4,5,6,7,8])
-    plt.xticks(Intervals[0:7],Intervals[0:7][::-1])
-    # print (Intervals[0:8].reverse())
+    ax.set_ylabel('Mean Absolute Bias ($\mathregular{W/m^{2}}$)', fontsize=14)
+    # Unit=( '($\mathregular{W/m^{2}}$)','($\mathregular{W/m^{2}}$)')
+    ax.set_xlim([0, 41])
+    plt.xticks(Intervals[0:8]*(-1),Intervals[0:8])
 
     plt.show()
 
 
-# Validation(GRID)
+Validation(GRID)
 
 BiasDistribution(GRID)
 
